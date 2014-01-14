@@ -1,7 +1,7 @@
 {
-    "name": "orderme-deps",
-    "version": "0.0.1",
-    "dependencies": {
-        "highlight.js": "git://github.com/isagalaev/highlight.js#7.3"
+    "name":"orderme-deps",
+    "version":"0.0.1",
+    "dependencies":{
+        "highlight.js":"git://github.com/isagalaev/highlight.js#7.5"
     }
 }
