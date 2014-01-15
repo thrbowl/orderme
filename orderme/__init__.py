@@ -23,6 +23,8 @@ def create_app(name=None, settings=None):
     app.config.from_envvar('ORDERME_SETTINGS', silent=True)
 
     logging.debug('register blueprints to app')
+    from .views.order import order
+    app.register_blueprint(order)
     from .views.auth import auth
     app.register_blueprint(auth, url_prefix='/auth')
 
