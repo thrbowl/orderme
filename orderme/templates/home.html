@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block stylesheet %}
+    <style type="text/css">
+        .container {
+            text-align: center;
+        }
+        .banner {
+            height: 360px;
+            width: 920px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="banner-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#banner-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#banner-carousel" data-slide-to="1"></li>
+                    <li data-target="#banner-carousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="{{ static('img/ads/01.jpg') }}" alt="" class="banner">
+                        <div class="carousel-caption">
+                            test1
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{{ static('img/ads/02.jpg') }}" alt="" class="banner">
+                        <div class="carousel-caption">
+                            test1
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{{ static('img/ads/03.jpg') }}" alt="" class="banner">
+                        <div class="carousel-caption">
+                            test1
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#banner-carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#banner-carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascript %}
+
+{% endblock %}
+{% endblock %}

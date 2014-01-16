@@ -5,4 +5,4 @@ order = Blueprint('order', __name__)
 
 @order.route('/', methods=['GET'])
 def index():
-    pass
+    return "OK"
