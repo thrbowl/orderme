@@ -6,6 +6,9 @@
     "font-awesome": "~4.0.3",
     "jquery": "~2.0.3",
     "less.js": "~1.6.1",
-    "requirejs": "~2.1.10"
+    "requirejs": "~2.1.10",
+    "holder.js": "git@github.com:imsky/holder.git#v2.3.0",
+    "bootstrap-touchspin": "git@github.com:istvan-ujjmeszaros/bootstrap-touchspin.git#2.5.0",
+    "raty": "git@github.com:wbotelhos/raty.git#2.5.2"
   }
 }

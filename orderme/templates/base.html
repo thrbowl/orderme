@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}啤酒坊{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ static('img/favicon.ico') }}" type="image/gif" >
     <link rel="stylesheet" href="{{ static('components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
@@ -16,6 +17,7 @@
 {% block body %}{% endblock %}
 <script src="{{ static('components/jquery/jquery.min.js') }}"></script>
 <script src="{{ static('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ static('components/holderjs/holder.js') }}"></script>
 
 <!-- Ext JavaScript-->
 {% block javascript %}{% endblock %}

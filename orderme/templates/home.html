@@ -1,12 +1,89 @@
 {% extends "base.html" %}
 {% block stylesheet %}
     <style type="text/css">
-        .container {
-            text-align: center;
+        .carousel {
+            margin-top: 6px;
         }
-        .banner {
-            height: 360px;
-            width: 920px;
+        .carousel .item {
+            height: 420px;
+            background-color:#BBBBBB;
+        }
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 420px;
+        }
+        .caption {
+            text-align: center
+        }
+        .split {
+            margin-top: 30px;
+        }
+        .thumbnail img {
+            height: 200px;
+        }
+        .first-line-indent {
+            text-indent: 2em;
+        }
+        #company-logo {
+            height: 140px;
+        }
+        #company-logo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 140px;
+        }
+        #company-info {
+            font-size: 17px;
+            margin-top: 12px;
+        }
+        #notice {
+            border-left:1px solid #82AD0C;
+        }
+        #star {
+            margin: 0 auto;
+        }
+
+        #choose-amount {
+            padding: 4px 0;
+        }
+        #choose-amount .wrap-input {
+            padding: 0 18px;
+            position: relative;
+            width: 36px;
+        }
+        #choose-amount .wrap-input a {
+            height: 15px;
+            line-height: 50px;
+            overflow: hidden;
+            position: absolute;
+            top: 3px;
+            width: 15px;
+        }
+        #choose-amount .btn-reduce {
+            background-position: -216px -190px;
+            left: 0;
+        }
+        #choose-amount .btn-add {
+            background-position: -232px -190px;
+            right: 0;
+        }
+        #choose-amount .btn-reduce:hover {
+            background-position: -216px -206px;
+        }
+        #choose-amount .btn-add:hover {
+            background-position: -232px -206px;
+        }
+        #choose-amount .text {
+            border: 1px solid #CCCCCC;
+            height: 18px;
+            padding: 2px;
+            text-align: center;
+            width: 36px;
         }
     </style>
 {% endblock %}
@@ -16,48 +93,221 @@
     <div class="row">
         <div class="col-md-12">
             <div id="banner-carousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#banner-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#banner-carousel" data-slide-to="1"></li>
-                    <li data-target="#banner-carousel" data-slide-to="2"></li>
+                    <li data-target="#banner-carousel" data-slide-to="1" class=""></li>
+                    <li data-target="#banner-carousel" data-slide-to="2" class=""></li>
                 </ol>
-
-                <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{ static('img/ads/01.jpg') }}" alt="" class="banner">
-                        <div class="carousel-caption">
-                            test1
-                        </div>
+                        <img src="{{ static('img/ads/a1.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{ static('img/ads/02.jpg') }}" alt="" class="banner">
-                        <div class="carousel-caption">
-                            test1
-                        </div>
+                        <img src="{{ static('img/ads/a2.jpg') }}" alt="">
                     </div>
                     <div class="item">
-                        <img src="{{ static('img/ads/03.jpg') }}" alt="" class="banner">
-                        <div class="carousel-caption">
-                            test1
-                        </div>
+                        <img src="{{ static('img/ads/a3.jpg') }}" alt="">
                     </div>
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#banner-carousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#banner-carousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                <a class="left carousel-control" href="#banner-carousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="right carousel-control" href="#banner-carousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="row split">
+        <div class="col-md-4">
+            <div id="company-logo">
+                <img src="{{ static('img/logo.gif') }}" alt="">
+            </div>
+            <div id="star"></div>
+            <p id="company-info" class="first-line-indent text-warning">
+                <em><strong>啤酒坊</strong></em>是灯塔市燕京啤酒总代理，负责灯塔市范围内的所有燕京啤酒的发行与销售。
+                为了让利广大客户，现上线直销平台，减少中间销售环节，让大家以最优惠的价格买到最称心的燕京啤酒。
+            </p>
+            <h3 class="text-danger">送酒电话：<stong>18710092303</stong></h3>
+            <h5 class="text-muted">送酒时间：<stong>早晨9:00－下午6:00</stong></h5>
+        </div>
+        <div id="notice" class="col-md-8">
+            <h4>燕京啤酒的卓越特点</h4>
+            <ol>
+                <li>燕京啤酒采用纯天然矿泉水酿造（国家四部委认证），锶含量高，饮后回味有泉水般的甘甜；</li>
+                <li>现代化啤酒制作装备：溶解氧控制最好、PO值控制最好、燕京啤酒总部为亚洲最大的啤酒生产厂、代表中国啤酒业装备的最高水平；</li>
+                <li>优质酵母菌种：典型高发酵度、苦味代谢柔和，1990、1995行业评酒标准；</li>
+                <li>保鲜期长达4个月：保存4个月的酒和刚下线的一样新鲜，达到国际最高水平。</li>
+                <li>通过中国绿色食品发展中心审核，符合绿色食品A级标准。</li>
+            </ol>
+            <h4>燕京啤酒 久负盛名</h4>
+            <div class="first-line-indent">
+                中国名牌产品，中国驰名商标，人民大会堂国宴特供酒，中国啤酒行业绿色食品认证产品，
+                中华人民共和国建国50周年及澳门回归献礼酒，全国“两会”宴会专用酒。
+            </div>
+            <h4>燕京啤酒的品种</h4>
+            <div class="first-line-indent">
+                目前燕京啤酒有8ºP、10ºP、11ºP、12ºP四大类，一百多个品种，
+                精品高档和普通中、低档啤酒齐全，包装方式采用瓶装、易拉罐装和桶装，
+                能满足不同口味和不同消费层次的消费者的需求。
+            </div>
+        </div>
+    </div>
+    <div class="row split">
+        <div class="col-md-12 alert alert-info">
+            <strong>本店提供送货上门服务，但因人手有限及成本因素，所以订单有如下限制：</strong>
+            <ol>
+                <li>本店配送范围只限灯塔市内，非本市客户请自行上门提酒。</li>
+                <li>同类产品购买数目，须满足最低起送条件。</li>
+                <li>不同类产品凑单，须满足最小金额条件。</li>
+                <li>本店会累计用户订单，给予相映的优惠政策，但只针对网站下单用户。</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w1.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京纯生啤酒</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w2.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京啤酒8℃SPECIAL</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w3.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京啤酒10℃超爽</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w4.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京啤酒11℃清爽</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w5.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京本色啤酒</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w6.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京冰啤</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w7.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京菊花啤酒</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w8.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京无醇啤酒</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w9.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京红啤</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ static('img/wine/w10.jpg') }}" alt="">
+                <div class="caption">
+                    <h4>燕京本生啤酒</h4>
+                    <ul class="list-unstyled alert alert-info text-left">
+                        <li><strong>价格：</strong>12.7元／瓶</li>
+                        <li><strong>最低起送：</strong>1件（24瓶）</li>
+                    </ul>
+                    {#<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+                </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
 
 {% block javascript %}
-
-{% endblock %}
+    <script src="{{ static('components/raty/lib/jquery.raty.min.js') }}"></script>
+    <script type="text/javascript">
+        $("#star").raty({
+            size: 19,
+            score: 3,
+            starOn: "{{ static('img/star-on.png') }}",
+            starOff: "{{ static('img/star-off.png') }}",
+            starHalf: "{{ static('components/raty/lib/img/star-half.png') }}"
+        });
+    </script>
 {% endblock %}
