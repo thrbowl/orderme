@@ -1,0 +1,43 @@
+.carousel .item {
+    height: 420px;
+    background-color:#BBBBBB;
+}
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 420px;
+}
+.caption {
+    text-align: center
+}
+.split {
+    margin-top: 40px;
+}
+.thumbnail img {
+    height: 200px;
+}
+.first-line-indent {
+    text-indent: 2em;
+}
+#company-logo {
+    height: 140px;
+}
+#company-logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+}
+#company-info {
+    font-size: 16px;
+    margin-top: 12px;
+}
+#notice {
+    border-left:1px solid #82AD0C;
+}
+#star {
+    margin: 0 auto;
+}

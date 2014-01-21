@@ -1,123 +1,15 @@
 {% extends "base.html" %}
 {% block stylesheet %}
-    <style type="text/css">
-        .navbar {
-            min-height: 30px;
-        }
-        .navbar-nav {
-            margin: 2.5px -15px;
-        }
-        .navbar-nav > li > a {
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-        .carousel {
-            margin-top: 40px;
-        }
-        .carousel .item {
-            height: 420px;
-            background-color:#BBBBBB;
-        }
-        .carousel img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            height: 420px;
-        }
-        .caption {
-            text-align: center
-        }
-        .split {
-            margin-top: 30px;
-        }
-        .thumbnail img {
-            height: 200px;
-        }
-        .first-line-indent {
-            text-indent: 2em;
-        }
-        #company-logo {
-            height: 140px;
-        }
-        #company-logo img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 140px;
-        }
-        #company-info {
-            font-size: 16px;
-            margin-top: 12px;
-        }
-        #notice {
-            border-left:1px solid #82AD0C;
-        }
-        #star {
-            margin: 0 auto;
-        }
-
-        #choose-amount {
-            padding: 4px 0;
-        }
-        #choose-amount .wrap-input {
-            padding: 0 18px;
-            position: relative;
-            width: 36px;
-        }
-        #choose-amount .wrap-input a {
-            height: 15px;
-            line-height: 50px;
-            overflow: hidden;
-            position: absolute;
-            top: 3px;
-            width: 15px;
-        }
-        #choose-amount .btn-reduce {
-            background-position: -216px -190px;
-            left: 0;
-        }
-        #choose-amount .btn-add {
-            background-position: -232px -190px;
-            right: 0;
-        }
-        #choose-amount .btn-reduce:hover {
-            background-position: -216px -206px;
-        }
-        #choose-amount .btn-add:hover {
-            background-position: -232px -206px;
-        }
-        #choose-amount .text {
-            border: 1px solid #CCCCCC;
-            height: 18px;
-            padding: 2px;
-            text-align: center;
-            width: 36px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ static('css/home.css') }}">
 {% endblock %}
 
 {% block body %}
-<header role="toolbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <nav role="navigation" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">订酒</a>
-                </li>
-                <li>
-                    <a href="#">登陆</a>
-                </li>
-                <li>
-                    <a href="#">注册</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<!-- header -->
+{% include "header.html" %}
+
+<!-- main -->
 <div class="container">
-    <div class="row hidden-xs">
+    <div class="row hidden-xs hidden-sm split">
         <div class="col-md-12">
             <div id="banner-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -142,7 +34,7 @@
         </div>
     </div>
     <div class="row split">
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12 col-sm-12">
             <div id="company-logo">
                 <img src="{{ static('img/logo.gif') }}" alt="">
             </div>
@@ -154,7 +46,7 @@
             <h3 class="text-danger">送酒电话：<stong>18710092303</stong></h3>
             <h5 class="text-muted">送酒时间：<stong>早晨9:00－下午6:00</stong></h5>
         </div>
-        <div id="notice" class="col-md-8 hidden-xs">
+        <div id="notice" class="col-md-8 hidden-xs hidden-sm">
             <h4>燕京啤酒的卓越特点</h4>
             <ol>
                 <li>燕京啤酒采用纯天然矿泉水酿造（国家四部委认证），锶含量高，饮后回味有泉水般的甘甜；</li>
@@ -176,6 +68,7 @@
             </div>
         </div>
     </div>
+    <a name="shopping"></a>
     <div class="row split">
         <div class="col-md-12 alert alert-info">
             <strong>本店提供送货上门服务，但因人手有限及成本因素，所以订单有如下限制：</strong>
@@ -188,7 +81,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w1.jpg') }}" alt="">
                 <div class="caption">
@@ -201,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w2.jpg') }}" alt="">
                 <div class="caption">
@@ -214,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w3.jpg') }}" alt="">
                 <div class="caption">
@@ -227,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w4.jpg') }}" alt="">
                 <div class="caption">
@@ -242,7 +135,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w5.jpg') }}" alt="">
                 <div class="caption">
@@ -255,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w6.jpg') }}" alt="">
                 <div class="caption">
@@ -268,7 +161,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w7.jpg') }}" alt="">
                 <div class="caption">
@@ -281,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w8.jpg') }}" alt="">
                 <div class="caption">
@@ -296,7 +189,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w9.jpg') }}" alt="">
                 <div class="caption">
@@ -309,7 +202,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail">
                 <img src="{{ static('img/wine/w10.jpg') }}" alt="">
                 <div class="caption">
@@ -324,6 +217,9 @@
         </div>
     </div>
 </div>
+
+<!-- footer -->
+{% include "footer.html" %}
 {% endblock %}
 
 {% block javascript %}
