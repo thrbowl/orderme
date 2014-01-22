@@ -15,7 +15,12 @@
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
+<!-- header -->
+{% include "header.html" %}
+<!-- main -->
 {% block body %}{% endblock %}
+<!-- footer -->
+{% include "footer.html" %}
 <script src="{{ static('components/jquery/jquery.min.js') }}"></script>
 <script src="{{ static('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ static('components/holderjs/holder.js') }}"></script>
