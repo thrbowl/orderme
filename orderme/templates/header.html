@@ -3,6 +3,9 @@
         <nav role="navigation" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    <a href="{{ url_for('main.home') }}">回首页</a>
+                </li>
+                <li>
                     <a href="{{ url_for('main.home') }}#shopping">订酒</a>
                 </li>
                 <li class="dropdown">
@@ -21,6 +24,11 @@
                                 <input type="checkbox" name="save" value="">保持登陆状态
                             </label>
                             <button type="submit" class="btn btn-large btn-primary btn-block">登陆</button>
+                            <p class="lead pull-right">
+                                <span class="h6"><strong>使用其它网站帐号登录</strong></span>
+                                <img src="{{ static('img/login/qq.png') }}" title="腾讯QQ">
+                                <img src="{{ static('img/login/sinat.png')}}" title="新浪微博">
+                            </p>
                         </form>
                     </div>
                 </li>

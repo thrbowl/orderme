@@ -1,121 +1,156 @@
 {% extends "base.html" %}
+{% block stylesheet %}
+    <style type="text/css">
+        #form-register {
+            margin: 18px;
+        }
+        label.vaild {
+
+        }
+        label.error {
+            font-weight: bold;
+            color: #b94a48;
+            padding: 2px 8px;
+            margin-top: 2px;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>New Registration</h2>
-
-                <form role="form">
+<div class="container">
+        <fieldset>
+            <legend>用户信息注册</legend>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="text-right text-info">
+                    <em><strong class="text-danger">*</strong>标记为<strong class="text-danger">必填</strong>选项</em>
+                </div>
+                <form id="form-register" class="form-horizontal" method="post" action="{{ url_for('auth.register') }}">
                     <div class="form-group">
-                        <label for="firstname" class="col-md-2">
-                            First Name:
-                        </label>
-
+                        <label for="username" class="col-md-2 control-label"><strong class="text-danger">*</strong>用户名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname" class="col-md-2">
-                            Last Name:
-                        </label>
-
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="emailaddress" class="col-md-2">
-                            Email address:
-                        </label>
-
+                        <label for="password" class="col-md-2 control-label"><strong class="text-danger">*</strong>密 码</label>
                         <div class="col-md-10">
-                            <input type="email" class="form-control" id="emailaddress"
-                                   placeholder="Enter email address">
-
-                            <p class="help-block">
-                                Example: yourname@domain.com
-                            </p>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="密 码">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-md-2">
-                            Password:
-                        </label>
-
+                        <label for="password_confirm" class="col-md-2 control-label"><strong class="text-danger">*</strong>确认密码</label>
                         <div class="col-md-10">
-                            <input type="password" class="form-control" id="password" placeholder="Enter Password">
-
-                            <p class="help-block">
-                                Min: 6 characters (Alphanumeric only)
-                            </p>
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="确认密码">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="sex" class="col-md-2">
-                            Sex:
-                        </label>
-
+                        <label for="name" class="col-md-2 control-label">姓 名</label>
                         <div class="col-md-10">
-                            <label class="radio">
-                                <input type="radio" name="sex" id="sex" value="male" checked>
-                                Male
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="sex" id="sex" value="female">
-                                Female
-                            </label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="姓 名">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="country" class="col-md-2">
-                            Country:
-                        </label>
-
+                        <label class="col-md-2 control-label">称 呼</label>
                         <div class="col-md-10">
-                            <select name="country" id="country" class="form-control">
-                                <option>--Please Select--</option>
-                                <option>India</option>
-                                <option>United States</option>
-                                <option>Canada</option>
-                                <option>United Kingdom</option>
-                                <option>Others</option>
-                            </select>
+                            <input type="radio" id="male" name="gender" value="1"> <label for="male"><em>先 生</em></label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="female" name="gender" value="2"> <label for="female"><em>女 士</em></label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="uploadimage" class="col-md-2">
-                            Upload Image:
-                        </label>
-
+                        <label for="telephone" class="col-md-2 control-label"><strong class="text-danger">*</strong>手机号</label>
                         <div class="col-md-10">
-                            <input type="file" name="uploadimage" id="uploadimage"
-
-                            <p class="help-block">
-                                Allowed formats: jpeg, jpg, gif, png
-                            </p>
+                            <input type="text" class="form-control" id="telephone" name="telephone" placeholder="手机号">
                         </div>
                     </div>
-                    <div class="checkbox">
-                        <div class="col-md-2">
-                        </div>
+                    <div class="form-group">
+                        <label for="address" class="col-md-2 control-label"><strong class="text-danger">*</strong>送酒地址</label>
                         <div class="col-md-10">
-                            <label>
-                                <input type="checkbox">Terms and Conditions</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="送酒地址">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                        </div>
-                        <div class="col-md-10">
-                            <button type="submit" class="btn btn-info">
-                                Register
-                            </button>
-                        </div>
+                    <div class="col-md-offset-2">
+                        <button type="submit" class="btn btn-primary">完 成</button>
+                        <button type="reset" class="btn btn-danger">清 空</button>
                     </div>
                 </form>
             </div>
-        </div>
+        </fieldset>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ static('components/jquery-validation/jquery.validate.js') }}"></script>
+    <script src="{{ static('components/jquery-validation/localization/messages_zh.js') }}"></script>
+    <script src="{{ static('js/register.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            var validator = $("#form-register").validate({
+                rules:{
+                    username:{
+                        minlength:6,
+                        maxlength:32,
+                        required:true
+                    },
+                    password:{
+                        minlength:6,
+                        maxlength:32,
+                        required:true
+                    },
+                    password_confirm:{
+                        required:true,
+                        equalTo:"#password"
+                    },
+                    name:{
+                        minlength:2,
+                        maxlength:32
+                    },
+                    telephone:{
+                        mobile:true,
+                        required:true
+                    },
+                    address:{
+                        minlength:10,
+                        maxlength:128,
+                        required:true
+                    }
+                },
+                messages:{
+                    username:{
+                        required:"还没想好你的用户名么？",
+                        minlength:"这个用户名有点短哦，至少要6个字符才可以的",
+                        maxlength:"这样太长了吧，你能记住么，我们记不住哦，请在32个字符以内"
+                    },
+                    password:{
+                        required:"没有密码可不行，不怕别人偷你的酒么?",
+                        minlength:"太短的密码不安全，要6个字符以上才行啊。",
+                        maxlength:"你的密码太长了，32个字符还不够么？"
+                    },
+                    password_confirm:{
+                        required:"忘了输入密码了吧?",
+                        equalTo:"还上面的密码不一样啊，是不是记错了？"
+                    },
+                    name:{
+                        minlength:"你的名字怎么会这么短？两字才可以啊",
+                        maxlength:"这个名字好像不是中国的，我们只在灯塔市那送酒，请别超过32个字符"
+                    },
+                    telephone:{
+                        mobile:"手机号不对呀，找不到你家门，怎么送酒给你啊？",
+                        required:"留个电话吧，找不着人不行啊"
+                    },
+                    address:{
+                        minlength:"这个地址感觉不靠谱啊，写详细一点吧，至少10个字吧",
+                        maxlength:"地址太长了，到火星了，128个字还不够么？",
+                        required:"把酒送哪去啊？"
+                    }
+                },
+                highlight:function (element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                success:function (element) {
+                    element.closest('.form-group').removeClass('has-error').addClass('has-success');
+                }
+            });
+        });
+    </script>
 {% endblock %}

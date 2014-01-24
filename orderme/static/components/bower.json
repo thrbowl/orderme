@@ -9,6 +9,7 @@
     "requirejs": "~2.1.10",
     "holder.js": "git@github.com:imsky/holder.git#v2.3.0",
     "bootstrap-touchspin": "git@github.com:istvan-ujjmeszaros/bootstrap-touchspin.git#2.5.0",
-    "raty": "git@github.com:wbotelhos/raty.git#2.5.2"
+    "raty": "git@github.com:wbotelhos/raty.git#2.5.2",
+    "jquery.validate.js": "git@github.com:jzaefferer/jquery-validation.git#1.11.1"
   }
 }
