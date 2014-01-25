@@ -27,7 +27,7 @@ $(function () {
                 minlength:2,
                 maxlength:32
             },
-            telephone:{
+            mobile:{
                 mobile:true,
                 required:true
             },
@@ -56,7 +56,7 @@ $(function () {
                 minlength:"你的名字怎么会这么短？两字才可以啊",
                 maxlength:"这个名字好像不是中国的，我们只在灯塔市那送酒，请别超过32个字符"
             },
-            telephone:{
+            mobile:{
                 mobile:"手机号不对呀，找不到你家门，怎么送酒给你啊？",
                 required:"留个电话吧，找不着人不行啊"
             },

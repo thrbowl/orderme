@@ -13,8 +13,8 @@ def create_app(name=None, settings=None):
     app = Flask(name or __name__)
 
     # register settings
-    # priority: env variable > params > settings.cfg
-    app.config.from_pyfile('settings.cfg')
+    # priority: env variable > params > settings.py
+    app.config.from_pyfile('settings.py')
     if settings is not None:
         if isinstance(object, settings):
             app.config.from_object(settings)
