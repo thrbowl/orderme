@@ -1,0 +1,12 @@
+#form-register {
+    margin: 18px;
+}
+label.vaild {
+
+}
+label.error {
+    font-weight: bold;
+    color: #b94a48;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
