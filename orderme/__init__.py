@@ -1,4 +1,5 @@
-import os, logging
+import os
+import logging
 from flask import Flask, render_template, url_for
 
 try:
@@ -41,5 +42,19 @@ def create_app(name=None, settings=None):
     @app.errorhandler(500)
     def http500(error):
         return render_template('500.html'), 500
+
+    @app.teardown_request
+    def teardown_request(e=None):
+        from .models import db
+        try:
+            if e is None and (db.session.new
+                              or db.session.dirty
+                              or db.session.deleted):
+                try:
+                    db.session.commit()
+                except:
+                    db.session.rollback()
+        finally:
+            db.session.remove()
 
     return app

@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, url_for, current_app, request
+from flask import Blueprint, render_template, url_for, current_app, request, g
 from ..forms import RegistrationForm
-from ..models import User
+from ..models import db, User
 
 auth = Blueprint('auth', __name__)
 
@@ -13,7 +13,8 @@ def login():
 def register():
     form = RegistrationForm(csrf_enabled=False)
     if form.validate_on_submit():
-        user = User(form.data)
+        user = User(**form.data)
+        db.session.add(user)
     return render_template('auth/register.html', form=form)
 
 @auth.route('/logout', methods=['POST'])
