@@ -23,13 +23,13 @@ def create_app(name=None, settings=None):
     app.config.from_envvar('ORDERME_SETTINGS', silent=True)
 
     logging.debug('register blueprints to app')
-
-    from .views.main import main
-    app.register_blueprint(main)
-    from .views.order import order
-    app.register_blueprint(order, url_prefix='/order')
-    from .views.auth import auth
-    app.register_blueprint(auth, url_prefix='/auth')
+    with app.app_context():
+        from .views.main import main
+        app.register_blueprint(main)
+        from .views.order import order
+        app.register_blueprint(order, url_prefix='/order')
+        from .views.auth import auth
+        app.register_blueprint(auth, url_prefix='/auth')
 
     logging.debug('add global templates function')
     app.jinja_env.globals['static'] = (lambda filename: url_for('static', filename=filename))

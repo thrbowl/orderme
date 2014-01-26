@@ -33,7 +33,7 @@ $(function () {
             },
             address:{
                 minlength:10,
-                maxlength:128,
+                maxlength:255,
                 required:true
             }
         },
@@ -62,7 +62,7 @@ $(function () {
             },
             address:{
                 minlength:"这个地址感觉不靠谱啊，写详细一点吧，至少10个字吧",
-                maxlength:"地址太长了，到火星了，128个字还不够么？",
+                maxlength:"地址太长了，到火星了，255个字还不够么？",
                 required:"把酒送哪去啊？"
             }
         },
