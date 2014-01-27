@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # SQLAlchemy conf
 SQLALCHEMY_DATABASE_URI = 'mysql://b43258:b43258@localhost/orderme'
 SQLALCHEMY_ECHO = True

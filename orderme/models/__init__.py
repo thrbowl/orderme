@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 from flask import current_app
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -20,7 +21,7 @@ class User(db.Model, UserMixin):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    username = Column(String(32), nullable=False)
+    username = Column(String(32), nullable=False, unique=True)
     password = Column(String(32), nullable=False)
     name = Column(String(32))
     gender = Column(Integer, default=0)

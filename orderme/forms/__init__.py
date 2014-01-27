@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask.ext.wtf import Form
 from wtforms import BooleanField, DateField, FloatField, StringField, IntegerField, DateTimeField, validators
 from ..models import Gender
