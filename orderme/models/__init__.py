@@ -1,6 +1,7 @@
 import datetime
 from flask import current_app
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import UserMixin
 from sqlalchemy import Table, Column, Integer, Float, String, Boolean, Text, Date, DateTime, func, and_, select
 from sqlalchemy.orm import relationship, backref, object_session
 from sqlalchemy.orm.exc import NoResultFound
@@ -15,7 +16,7 @@ class Gender(object):
     FEMALE = 2
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)

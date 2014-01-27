@@ -1,6 +1,7 @@
 import os
 import logging
 from flask import Flask, render_template, url_for
+from flask.ext.login import LoginManager
 
 try:
     import pkg_resources
@@ -23,6 +24,9 @@ def create_app(name=None, settings=None):
             app.config.from_pyfile(settings)
     app.config.from_envvar('ORDERME_SETTINGS', silent=True)
 
+    logging.debug('add session SECRET_KEY')
+    app.secret_key = app.config['SECRET_KEY']
+
     logging.debug('register blueprints to app')
     with app.app_context():
         from .views.main import main
@@ -35,6 +39,7 @@ def create_app(name=None, settings=None):
     logging.debug('add global templates function')
     app.jinja_env.globals['static'] = (lambda filename: url_for('static', filename=filename))
 
+    logging.debug('register error process handlers')
     @app.errorhandler(404)
     def http404(error):
         return render_template('404.html'), 404
@@ -43,6 +48,7 @@ def create_app(name=None, settings=None):
     def http500(error):
         return render_template('500.html'), 500
 
+    logging.debug('add database auto commit callback')
     @app.teardown_request
     def teardown_request(e=None):
         from .models import db
@@ -54,5 +60,15 @@ def create_app(name=None, settings=None):
                     db.session.rollback()
         finally:
             db.session.remove()
+
+    logging.debug('add user login manager')
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
+
+    @login_manager.user_loader
+    def user_loader(user_id):
+        from .models import User
+        return User.query.get(int(user_id))
 
     return app
