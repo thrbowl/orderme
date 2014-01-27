@@ -47,9 +47,7 @@ def create_app(name=None, settings=None):
     def teardown_request(e=None):
         from .models import db
         try:
-            if e is None and (db.session.new
-                              or db.session.dirty
-                              or db.session.deleted):
+            if e is None:
                 try:
                     db.session.commit()
                 except:
