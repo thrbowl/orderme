@@ -25,7 +25,8 @@ def register():
     if form.validate_on_submit():
         user = User(**form.data)
         db.session.add(user)
-        flash(u'恭喜您, 您的帐户%s注册成功' % form.username, 'info')
+        db.session.flush()
+        flash(u'恭喜您, 您的帐户%s注册成功' % user.username, 'info')
         login_user(user)
         return redirect(url_for('main.forward'))
     return render_template('auth/register.html')
@@ -35,7 +36,8 @@ def login():
     form = LoginForm(csrf_enabled=False)
     if form.validate_on_submit():
         try:
-            u = User.query.filter(User.username == form.username, User.password == form.password).one()
+            u = User.query.filter(User.username == form.username,
+                                User.password == form.password).one()
             login_user(u)
         except NoResultFound:
             pass

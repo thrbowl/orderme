@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 {% block stylesheet %}
-    <link rel="stylesheet" href="{{ static('css/result.css') }}">
+    <link rel="stylesheet" href="{{ static('css/forward.css') }}?v=1">
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    <div class="col-md-8 col-md-offset-2">
-        test
+    <div class="center-block forward-block">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="message alert-{{ messages[0][0] }}">
+                    {{ messages[0][1] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="nav text-center alert-info">
+            <ul class="list-inline">
+                <li><a href="#">买酒</a></li>
+                <li><a href="#">用户中心</a></li>
+                <li><a href="#">回首页</a></li>
+                <li><a href="#">返回上一页</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
