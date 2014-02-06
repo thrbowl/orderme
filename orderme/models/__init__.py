@@ -61,6 +61,7 @@ class Product(db.Model):
     price = Column(Float, nullable=False)
     description = Column(Text)
     create_time = Column(DateTime, nullable=False)
+    type = Column(Integer, default=0)
     is_sell = Column(Boolean, nullable=False)
 
     def __init__(self, **options):
