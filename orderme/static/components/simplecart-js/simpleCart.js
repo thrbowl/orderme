@@ -62,6 +62,7 @@
 
 				// Currencies
 				currencies = {
+					"CNY": { code: "CNY", symbol: "&#65509;", name: "Chinese Money" },
 					"USD": { code: "USD", symbol: "&#36;", name: "US Dollar" },
 					"AUD": { code: "AUD", symbol: "&#36;", name: "Australian Dollar" },
 					"BRL": { code: "BRL", symbol: "R&#36;", name: "Brazilian Real" },
@@ -88,7 +89,7 @@
 				// default options
 				settings = {
 					checkout				: { type: "PayPal", email: "you@yours.com" },
-					currency				: "USD",
+					currency				: "CNY",
 					language				: "english-us",
 
 					cartStyle				: "div",
@@ -1794,7 +1795,7 @@
 												case "textarea":
 												case "select":
 													type = $item.attr("type");
-													if (!type || ((type.toLowerCase() === "checkbox" || type.toLowerCase() === "radio") && $item.attr("checked")) || type.toLowerCase() === "text" || type.toLowerCase() === "number") {
+													if (!type || ((type.toLowerCase() === "checkbox" || type.toLowerCase() === "radio") && $item.attr("checked")) || type.toLowerCase() === "text" || type.toLowerCase() === "number" || type.toLowerCase() === "hidden") {
 														val = $item.val();
 													}				
 													break;
