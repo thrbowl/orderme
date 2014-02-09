@@ -9,4 +9,4 @@ cart = Blueprint('cart', __name__)
 
 @cart.route('/', methods=['GET'])
 def index():
-    return 'OK'
+    return render_template('cart/index.html')

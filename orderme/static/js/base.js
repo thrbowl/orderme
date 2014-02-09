@@ -10,12 +10,18 @@ $(function () {
         ],
         cartStyle: "div",
         update: function () {
-            if (simpleCart.total() == 0) {
-                $("#no_cart_tip").removeClass("hide");
-                $("#cart_action").addClass("hide");
+            var total = simpleCart.total();
+            if (total == 0) {
+                $("#simpleCart_action_0").removeClass("hide");
+                $("#simpleCart_action_1").addClass("hide");
             } else {
-                $("#cart_action").removeClass("hide");
-                $("#no_cart_tip").addClass("hide");
+                $("#simpleCart_action_1").removeClass("hide");
+                $("#simpleCart_action_0").addClass("hide");
+            }
+            if (total > 0 && total < MIN_AMOUNT) {
+                $("#simpleCart_total").addClass("badge-danger");
+            } else {
+                $("#simpleCart_total").removeClass("badge-danger");
             }
         }
     });

@@ -20,6 +20,9 @@
 .badge-info {
     background-color: #3A87AD;
 }
+.badge-danger {
+    color: #FF0000;
+}
 
 /* form-signin */
 .form-signin {
