@@ -1,3 +1,4 @@
+/* bootstrap spinner */
 .container {
     margin-top: 40px;
 }
@@ -14,11 +15,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.dropdown-menu {
-    width: 270px;
+
+/* custom class */
+.badge-info {
+    background-color: #3A87AD;
 }
+
+/* form-signin */
 .form-signin {
-    max-width: 330px;
+    width: 270px;
     padding: 15px;
     margin: 0 auto;
 }
@@ -43,8 +48,38 @@
 .form-signin label {
     font-weight: normal;
 }
-#cart-dropdown {
-    max-width: 330px;
-    padding: 15px;
+
+/* form-cart */
+.form-cart {
+    width: 270px;
     margin: 0 auto;
+}
+.form-cart .simpleCart_items {
+    max-height: 240px;
+    overflow-y: auto;
+}
+.form-cart .simpleCart_items .itemRow {
+    border-top: 1px dotted #ccc;
+    padding: 2px 15px;
+}
+.form-cart .simpleCart_items .itemRow div {
+    display: inline-block;
+}
+.form-cart .simpleCart_items .itemRow .item-name {
+    width: 60%;
+    vertical-align:top;
+    font-weight: bold;
+    font-size: 15px;
+    color: #8a6d3b;
+}
+.form-cart .simpleCart_items .itemRow .item-custom {
+    width: 40%;
+    text-align: right;
+    font-weight: 700;
+    font-size: 11px;
+}
+.form-cart .simpleCart_action {
+    margin-top: 3px;
+    padding: 5px;
+    background-color: #F5F5F5;
 }
