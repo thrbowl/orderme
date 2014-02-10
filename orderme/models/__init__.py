@@ -126,6 +126,10 @@ class OrderDetail(db.Model):
         self.num = options['num']
 
 
+#class Cart(db.Model):
+#    pass
+
+
 #class SystemConfig(db.Model):
 #    __tablename__ = 'system_config'
 #
