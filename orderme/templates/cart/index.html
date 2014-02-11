@@ -39,7 +39,7 @@
 
         }
 
-        .checkout .simpleCart_items .item-name {
+        .checkout .simpleCart_items .item-custom-name {
             width: 40%;
         }
 
@@ -47,11 +47,11 @@
             width: 25%;
         }
 
-        .checkout .simpleCart_items .item-quantity {
+        .checkout .simpleCart_items .item-custom-quantity {
             width: 15%;
         }
 
-        .checkout .simpleCart_items .item-remove {
+        .checkout .simpleCart_items .item-custom-remove {
             text-align: center;
         }
     </style>
@@ -89,7 +89,6 @@
                     </div>
 
                     <div class="simpleCart_action text-right">
-                        <input type="text" class="hidden simpleCart_total" id="simpleCart_total_trigger">
                         应付总额： <strong class="simpleCart_total text-danger"></strong>元&nbsp;&nbsp;
                         <button type="submit" class="btn btn-danger">提交订单</button>
                     </div>
@@ -105,22 +104,26 @@
         $(function () {
             simpleCart({
                 cartColumns:[
-                    { attr:"name", label:"商品", view:function (item) {
-                        return '<a href="#">' + item.get("name") + '</a>';
+                    { attr:"custom-name", label:"商品", view:function (item) {
+                        return '<a href="#">' + item.get("name") + '</a><input type="hidden" name="item_idx" value="' + item.get("idx") + '">';
                     }},
                     { attr:"price", label:"单价", view:"currency"},
-                    { attr:"quantity", label:"数量", view:function (item) {
-                        return '<input type="text" name="spinner" class="form-control input-sm simpleCart_input" value="' + item.quantity() + '">';
+                    { attr:"custom-quantity", label:"数量", view:function (item) {
+                        return '<div class="input-group input-group-sm item-quantity">' +
+                                '<span class="input-group-btn">' +
+                                '<button class="btn btn-default simpleCart_decrement" type="button">-</button>' +
+                                '</span>' +
+                                '<input type="text" name="item_quantity" class="input-sm form-control simpleCart_input" value="' + item.quantity() + '">' +
+                                '<span class="input-group-btn">' +
+                                '<button class="btn btn-default simpleCart_increment" type="button">+</button>' +
+                                '</span>' +
+                                '</div>';
                     }},
-                    { attr:'remove', view:function () {
+                    { attr:'custom-remove', view:function () {
                         return '<button type="button" class="simpleCart_remove btn btn-danger btn-xs">删&nbsp;除</button>';
                     }}
                 ],
                 cartStyle:"table"
-            });
-
-            $("#simpleCart_total_trigger").change(function(){
-               alert(this.val());
             });
         });
     </script>
