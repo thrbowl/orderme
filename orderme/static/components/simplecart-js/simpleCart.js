@@ -637,7 +637,8 @@
 						x,
 						xlen;
 
-					container.html(' ').append(cart_container);
+                    cart_container.addClass("table table-condensed");
+                    container.html(' ').append(cart_container);
 
 					cart_container.append(thead_container);
 

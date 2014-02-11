@@ -1,7 +1,127 @@
 {% extends "base.html" %}
+{% block stylesheet %}
+    <style>
+        .col-md-10 {
+            padding: 0;
+        }
+
+        .checkout {
+            margin-top: 12px;
+            border: 1px solid #DDDDDD;
+        }
+
+        .checkout .step {
+            border-bottom: 1px solid #DDDDDD;
+        }
+
+        .checkout .step .step-title {
+            height: 45px;
+            line-height: 45px;
+            padding: 0 20px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .checkout .step .step-content {
+            padding: 0 44px;
+        }
+
+        .checkout .simpleCart_action {
+            background-color: #F5F5F5;
+            padding: 7px;
+        }
+
+        .checkout .simpleCart_total {
+            font-size: 20px;
+        }
+
+        .checkout .simpleCart_total .itemRow {
+
+        }
+
+        .checkout .simpleCart_items .item-name {
+            width: 40%;
+        }
+
+        .checkout .simpleCart_items .item-price {
+            width: 25%;
+        }
+
+        .checkout .simpleCart_items .item-quantity {
+            width: 15%;
+        }
+
+        .checkout .simpleCart_items .item-remove {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-<div class="container">
-    OK
-</div>
+    <div class="container">
+        <fieldset>
+            <legend>填写并核对订单信息</legend>
+            <form action="" method="post">
+                <div class="col-md-10 col-md-offset-1 checkout">
+                    <div class="step" id="step-1">
+                        <div class="step-title">
+                            <strong>收货人信息</strong>
+                        </div>
+                        <div class="step-content">
+
+                        </div>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-title">
+                            <strong>商品清单</strong>
+                        </div>
+                        <div class="step-content simpleCart_items">
+
+                        </div>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-title">
+                            <strong>支付及配送方式</strong>
+                        </div>
+                        <div class="step-content">
+
+                        </div>
+                    </div>
+
+                    <div class="simpleCart_action text-right">
+                        <input type="text" class="hidden simpleCart_total" id="simpleCart_total_trigger">
+                        应付总额： <strong class="simpleCart_total text-danger"></strong>元&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-danger">提交订单</button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ static('components/bootstrap-touchspin/bootstrap-touchspin/bootstrap.touchspin.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            simpleCart({
+                cartColumns:[
+                    { attr:"name", label:"商品", view:function (item) {
+                        return '<a href="#">' + item.get("name") + '</a>';
+                    }},
+                    { attr:"price", label:"单价", view:"currency"},
+                    { attr:"quantity", label:"数量", view:function (item) {
+                        return '<input type="text" name="spinner" class="form-control input-sm simpleCart_input" value="' + item.quantity() + '">';
+                    }},
+                    { attr:'remove', view:function () {
+                        return '<button type="button" class="simpleCart_remove btn btn-danger btn-xs">删&nbsp;除</button>';
+                    }}
+                ],
+                cartStyle:"table"
+            });
+
+            $("#simpleCart_total_trigger").change(function(){
+               alert(this.val());
+            });
+        });
+    </script>
 {% endblock %}
