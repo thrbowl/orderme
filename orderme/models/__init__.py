@@ -12,11 +12,6 @@ from sqlalchemy.ext.hybrid import hybrid_property
 db = SQLAlchemy(current_app)
 
 
-class Gender(object):
-    MALE = 1
-    FEMALE = 2
-
-
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
 
@@ -24,9 +19,9 @@ class User(db.Model, UserMixin):
     username = Column(String(32), nullable=False, unique=True)
     password = Column(String(32), nullable=False)
     name = Column(String(32))
-    gender = Column(Integer, default=0)
     birthday = Column(Date)
     mobile = Column(String(11), nullable=False)
+    address = Column(String(255), nullable=False)
     cost = Column(Float, nullable=False, default=0)
     create_time = Column(DateTime, nullable=False)
     login_time = Column(DateTime, nullable=False)
@@ -35,26 +30,14 @@ class User(db.Model, UserMixin):
         self.username = options['username']
         self.password = options['password']
         self.name = options.get('name')
-        self.gender = options.get('gender')
         self.birthday = options.get('birthday')
         self.mobile = options['mobile']
+        self.address = options['address']
         self.create_time = self.login_time = datetime.datetime.now()
 
 
-class Address(db.Model):
-    __tablename__ = 'address'
-
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, nullable=False)
-    address = Column(String(255), nullable=False)
-
-    def __init__(self, user_id, address):
-        self.user_id = user_id
-        self.address = address
-
-
-class Product(db.Model):
-    __tablename__ = 'product'
+class Goods(db.Model):
+    __tablename__ = 'goods'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(32), nullable=False)
@@ -77,13 +60,13 @@ class PackageDetail(db.Model):
 
     id = Column(Integer, primary_key=True)
     package_id = Column(Integer, nullable=False)
-    product_id = Column(Integer, nullable=False)
-    product_num = Column(Integer, nullable=False)
+    goods_id = Column(Integer, nullable=False)
+    goods_num = Column(Integer, nullable=False)
 
     def __init__(self, **options):
         self.package_id = options['package_id']
-        self.product_id = options['product_id']
-        self.product_num = options['product_num']
+        self.goods_id = options['goods_id']
+        self.goods_num = options['goods_num']
 
 
 class OrderStatus(object):
@@ -117,17 +100,14 @@ class OrderDetail(db.Model):
     __tablename__ = 'order_detail'
 
     id = Column(Integer, primary_key=True)
-    product_id = Column(Integer, nullable=False)
+    goods_id = Column(Integer, nullable=False)
     num = Column(Integer, nullable=False)
 
     def __init__(self, **options):
         self.order_id = options['order_id']
-        self.product_id = options['product_id']
+        self.goods_id = options['goods_id']
         self.num = options['num']
 
-
-#class Cart(db.Model):
-#    pass
 
 
 #class SystemConfig(db.Model):

@@ -1,6 +1,17 @@
-#form-register {
-    margin: 18px;
+.form-inline .form-group{
+    margin-left: 0;
+    margin-right: 0;
 }
+.form-inline .form-group .year{
+    width: 120px;
+}
+.form-inline .form-group .month{
+    width: 80px;
+}
+.form-inline .form-group .day{
+    width: 80px;
+}
+
 label.vaild {
 
 }
@@ -9,4 +20,7 @@ label.error {
     color: #b94a48;
     padding: 2px 8px;
     margin-top: 2px;
+}
+#form-register {
+    margin: 18px;
 }

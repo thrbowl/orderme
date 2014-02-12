@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ static('components/bootstrap-datepicker/css/datepicker3.css') }}">
     <link rel="stylesheet" href="{{ static('css/register.css') }}">
@@ -6,159 +7,97 @@
 
 {% block body %}
 <div class="container">
-        <fieldset>
-            <legend>用户信息注册</legend>
-            <div class="col-md-8 col-md-offset-2">
-                <div class="text-right text-info">
-                    <em><strong class="text-danger">*</strong>标记为<strong class="text-danger">必填</strong>选项</em>
-                </div>
-                <form id="form-register" class="form-horizontal" method="post" action="{{ url_for('auth.register') }}">
-                    <div class="form-group">
-                        <label for="username" class="col-md-2 control-label"><strong class="text-danger">*</strong>用户名</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-md-2 control-label"><strong class="text-danger">*</strong>密 码</label>
-                        <div class="col-md-10">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="密 码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password_confirm" class="col-md-2 control-label"><strong class="text-danger">*</strong>确认密码</label>
-                        <div class="col-md-10">
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="确认密码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-md-2 control-label">姓 名</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="姓 名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">称 呼</label>
-                        <div class="col-md-10">
-                            <input type="radio" id="male" name="gender" value="1" checked="true"> <label for="male"><em>先 生</em></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" id="female" name="gender" value="2"> <label for="female"><em>女 士</em></label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="birthday">生 日</label>
-                        <div class="col-md-10" id="birthday_datepicker">
-                            <input type="text" class="form-control" id="birthday" name="birthday" placeholder="生 日" readonly="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile" class="col-md-2 control-label"><strong class="text-danger">*</strong>手机号</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="手机号">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="address" class="col-md-2 control-label"><strong class="text-danger">*</strong>送酒地址</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="address" name="address" placeholder="送酒地址">
-                        </div>
-                    </div>
-                    <div class="col-md-offset-2">
-                        <button type="submit" class="btn btn-primary">完 成</button>
-                        <button type="reset" class="btn btn-danger">清 空</button>
-                    </div>
-                </form>
+    <fieldset>
+        <legend>用户信息注册</legend>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="text-right text-info">
+                <em><strong class="text-danger">*</strong>标记为<strong class="text-danger">必填</strong>选项</em>
             </div>
-        </fieldset>
-    </div>
+            <form id="form-register" class="form-horizontal" method="post" action="{{ url_for('auth.register') }}">
+                <div class="form-group">
+                    <label for="username" class="col-md-2 control-label"><strong class="text-danger">*</strong>用户名</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-2 control-label"><strong class="text-danger">*</strong>密 码</label>
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="密 码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password_confirm" class="col-md-2 control-label"><strong class="text-danger">*</strong>确认密码</label>
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="确认密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label"><strong class="text-danger">*</strong>称 呼</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="称 呼">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-md-2 control-label"><strong class="text-danger">*</strong>手机号</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="mobile" name="mobile" placeholder="手机号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-md-2 control-label"><strong class="text-danger">*</strong>送酒地址</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="送酒地址, 范围辽宁省灯塔市">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">生 日</label>
+                    <div class="col-md-10">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <select class="form-control year" name="birthday_year">
+                                    <option></option>
+                                    {% for year in range(1914,2015) %}
+                                        <option value="{{ year }}">{{ year }}</option>
+                                    {% endfor %}
+                                </select>年&nbsp;
+                                <select class="form-control month" name="birthday_month">
+                                    <option></option>
+                                    {% for month in range(1,13) %}
+                                        <option value="{{ month }}">{{ month }}</option>
+                                    {% endfor %}
+                                </select>月&nbsp;
+                                <select class="form-control day" name="birthday_day">
+                                    <option></option>
+                                    {% for day in range(1,32) %}
+                                        <option value="{{ day }}">{{ day }}</option>
+                                    {% endfor %}
+                                </select>日&nbsp;
+                            </div>
+                            <div>
+                                <em class="text-success">
+                                    正确填写你的生日，也许会有意想不到的惊喜哦^~^
+                                    <br>注：生日提交后不可更改，不填写和填写不正确将用注册日期作为默认值
+                                </em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-offset-2">
+                    <button type="submit" class="btn btn-primary">完 成</button>
+                    <button type="reset" class="btn btn-danger">清 空</button>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</div>
 {% endblock %}
 
 {% block javascript %}
+    <script type="text/javascript">
+        var remote_url = "{{ url_for('auth.check_username_unique') }}";
+    </script>
     <script src="{{ static('components/jquery-validation/jquery.validate.js') }}"></script>
     <script src="{{ static('components/jquery-validation/localization/messages_zh.js') }}"></script>
-    <script src="{{ static('components/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ static('components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js') }}"></script>
     <script src="{{ static('js/register.js') }}"></script>
-    <script type="text/javascript">
-        $(function () {
-            var validator = $("#form-register").validate({
-                rules: {
-                    username: {
-                        minlength: 6,
-                        maxlength: 32,
-                        required: true,
-                        remote: "{{ url_for('auth.check_username_unique') }}"
-                    },
-                    password: {
-                        minlength: 6,
-                        maxlength: 32,
-                        required: true
-                    },
-                    password_confirm: {
-                        required: true,
-                        equalTo: "#password"
-                    },
-                    name: {
-                        minlength: 2,
-                        maxlength: 32
-                    },
-                    mobile: {
-                        mobile: true,
-                        required: true
-                    },
-                    address: {
-                        minlength: 10,
-                        maxlength: 255,
-                        required: true
-                    }
-                },
-                messages: {
-                    username: {
-                        required: "还没想好你的用户名么？",
-                        minlength: "这个用户名有点短哦，至少要6个字符才可以的",
-                        maxlength: "这样太长了吧，你能记住么，我们记不住哦，请在32个字符以内",
-                        remote: "不好意思，这个用户名已经别别人抢走了，请重新选一个"
-                    },
-                    password: {
-                        required: "没有密码可不行，不怕别人偷你的酒么?",
-                        minlength: "太短的密码不安全，要6个字符以上才行啊。",
-                        maxlength: "你的密码太长了，32个字符还不够么？"
-                    },
-                    password_confirm: {
-                        required: "忘了输入密码了吧?",
-                        equalTo: "还上面的密码不一样啊，是不是记错了？"
-                    },
-                    name: {
-                        minlength: "你的名字怎么会这么短？两字才可以啊",
-                        maxlength: "这个名字好像不是中国的，我们只在灯塔市那送酒，请别超过32个字符"
-                    },
-                    mobile: {
-                        mobile: "手机号不对呀，找不到你家门，怎么送酒给你啊？",
-                        required: "留个电话吧，找不着人不行啊"
-                    },
-                    address: {
-                        minlength: "这个地址感觉不靠谱啊，写详细一点吧，至少10个字吧",
-                        maxlength: "地址太长了，到火星了，255个字还不够么？",
-                        required: "把酒送哪去啊？"
-                    }
-                },
-                highlight: function (element) {
-                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-                },
-                success: function (element) {
-                    element.closest('.form-group').removeClass('has-error').addClass('has-success');
-                }
-            });
-
-            var birthpicker = $('#birthday_datepicker').datepicker({
-                format: "yyyy-mm-dd",
-                language: "zh-CN",
-                todayHighlight: true,
-                endDate: "0d",
-                startDate: "-100y"
-            }).on('changeDate', function (e) {
-                        $('#birthday').val(e.format());
-                    });
-        });
-    </script>
 {% endblock %}

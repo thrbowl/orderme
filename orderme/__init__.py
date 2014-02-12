@@ -61,7 +61,8 @@ def create_app(name=None, settings=None):
             if e is None:
                 try:
                     db.session.commit()
-                except:
+                except Exception, e:
+                    logging.error(str(e))
                     db.session.rollback()
         finally:
             db.session.remove()
