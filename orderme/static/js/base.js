@@ -18,7 +18,7 @@ $(function () {
                 $("#simpleCart_action_1").removeClass("hide");
                 $("#simpleCart_action_0").addClass("hide");
             }
-            if (total > 0 && total < MIN_AMOUNT) {
+            if (total >= 0 && total < MIN_AMOUNT) {
                 $("#simpleCart_total").addClass("badge-danger");
             } else {
                 $("#simpleCart_total").removeClass("badge-danger");

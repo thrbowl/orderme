@@ -24,6 +24,7 @@
 
         .checkout .step .step-content {
             padding: 0 44px;
+            margin-bottom: 7px;
         }
 
         .checkout .simpleCart_action {
@@ -84,7 +85,7 @@
                             <strong>支付及配送方式</strong>
                         </div>
                         <div class="step-content">
-
+                            货到付款
                         </div>
                     </div>
 
@@ -120,10 +121,25 @@
                                 '</div>';
                     }},
                     { attr:'custom-remove', view:function () {
-                        return '<button type="button" class="simpleCart_remove btn btn-danger btn-xs">删&nbsp;除</button>';
+                        return '<button type="button" class="simpleCart_remove btn btn-xs">删&nbsp;除</button>';
                     }}
                 ],
-                cartStyle:"table"
+                cartStyle:"table",
+                update:function () {
+                    var total = simpleCart.total();
+                    if (total == 0) {
+                        $("#simpleCart_action_0").removeClass("hide");
+                        $("#simpleCart_action_1").addClass("hide");
+                    } else {
+                        $("#simpleCart_action_1").removeClass("hide");
+                        $("#simpleCart_action_0").addClass("hide");
+                    }
+                    if (total > 0 && total < MIN_AMOUNT) {
+                        $("#simpleCart_total").removeClass("badge-primary").addClass("badge-danger");
+                    } else {
+                        $("#simpleCart_total").removeClass("badge-danger").addClass("badge-primary");
+                    }
+                }
             });
         });
     </script>
