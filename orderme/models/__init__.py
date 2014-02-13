@@ -30,10 +30,19 @@ class User(db.Model, UserMixin):
         self.username = options['username']
         self.password = options['password']
         self.name = options.get('name')
-        self.birthday = options.get('birthday')
         self.mobile = options['mobile']
         self.address = options['address']
         self.create_time = self.login_time = datetime.datetime.now()
+
+        birthday = options.get('birthday')
+        birthday_year = options.get('birthday_year')
+        birthday_month = options.get('birthday_month')
+        birthday_day = options.get('birthday_day')
+        if birthday:
+            self.birthday = birthday
+        elif birthday_year and birthday_month and birthday_day:
+            self.birthday = datetime.date(birthday_year, birthday_month, birthday_day)
+
 
 
 class Goods(db.Model):

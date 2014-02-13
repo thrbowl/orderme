@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block stylesheet %}
     <style>
         .col-md-10 {
@@ -25,6 +26,19 @@
         .checkout .step .step-content {
             padding: 0 44px;
             margin-bottom: 7px;
+        }
+
+        .form-horizontal .step-content label {
+            width: 90px;
+            font-weight: normal !important;
+        }
+
+        .form-horizontal .step-content input[type="radio"] {
+            margin: 5px;
+        }
+
+        .checkout .checkout_method {
+            padding: 4px 20px;
         }
 
         .checkout .simpleCart_action {
@@ -62,14 +76,37 @@
     <div class="container">
         <fieldset>
             <legend>填写并核对订单信息</legend>
-            <form action="" method="post">
+            <form action="" method="post" class="form-horizontal">
                 <div class="col-md-10 col-md-offset-1 checkout">
                     <div class="step" id="step-1">
                         <div class="step-title">
                             <strong>收货人信息</strong>
                         </div>
                         <div class="step-content">
-
+                            <div class="form-group">
+                                <label class="control-label col-md-2">姓 名</label>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control input-sm" name="name"
+                                           placeholder="姓 名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">手机号</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control input-sm" name="mobile"
+                                           placeholder="手机号">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">地 址</label>
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">辽宁省灯塔市</span>
+                                        <input type="text" class="form-control input-sm" name="address"
+                                               placeholder="地 址">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="step" id="step-2">
@@ -85,7 +122,16 @@
                             <strong>支付及配送方式</strong>
                         </div>
                         <div class="step-content">
-                            货到付款
+                            支付方式
+                            <div class="checkout_method">
+                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            </div>
+                            <div class="checkout_method">
+                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            </div>
+                            <div class="checkout_method">
+                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            </div>
                         </div>
                     </div>
 

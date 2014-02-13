@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 import json
 from flask import Blueprint, render_template, url_for, current_app, request, g, flash, session, redirect
 from flask.ext.login import login_required, login_user, logout_user, current_user
@@ -38,7 +39,8 @@ def login():
     if form.validate_on_submit():
         try:
             u = User.query.filter(User.username == form.username.data,
-                User.password == form.password.data).one()
+                                  User.password == form.password.data).one()
+            u.login_time = datetime.datetime.now()
             login_user(u, remember=form.remember.data)
         except NoResultFound:
             pass
