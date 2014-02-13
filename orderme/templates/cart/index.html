@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}订单结算页{% endblock %}
+
 {% block stylesheet %}
     <style>
         .col-md-10 {
@@ -120,18 +122,21 @@
                         <div class="step-content">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="payment" value="option1">货到付款
+                                    <input type="radio" name="payment" value="1" checked>货到付款
                                 </label>
+                                <span class="col-md-offset-1 text-muted">送货上门后再收款，支持现金、POS机刷卡</span>
                             </div>
-                            <div class="radio">
+                            <div class="radio hide">
                                 <label>
-                                    <input type="radio" name="payment" value="option1">在线支付
+                                    <input type="radio" name="payment" value="2">在线支付
                                 </label>
+                                <span class="col-md-offset-1 text-muted">即时到帐，支持绝大数银行借记卡及部分银行信用卡</span>
                             </div>
-                            <div class="radio">
+                            <div class="radio hide">
                                 <label>
-                                    <input type="radio" name="payment" value="option1">上门自提
+                                    <input type="radio" name="payment" value="3">上门自提
                                 </label>
+                                <span class="col-md-offset-1 text-muted">自提时付款，支持现金、POS刷卡、支票支付</span>
                             </div>
                         </div>
                     </div>

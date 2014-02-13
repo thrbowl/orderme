@@ -42,6 +42,8 @@ class User(db.Model, UserMixin):
             self.birthday = birthday
         elif birthday_year and birthday_month and birthday_day:
             self.birthday = datetime.date(birthday_year, birthday_month, birthday_day)
+        else:
+            self.birthday = datetime.date.today()
 
 
 
