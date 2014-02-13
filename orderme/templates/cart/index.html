@@ -37,10 +37,6 @@
             margin: 5px;
         }
 
-        .checkout .checkout_method {
-            padding: 4px 20px;
-        }
-
         .checkout .simpleCart_action {
             background-color: #F5F5F5;
             padding: 7px;
@@ -119,22 +115,26 @@
                     </div>
                     <div class="step" id="step-3">
                         <div class="step-title">
-                            <strong>支付及配送方式</strong>
+                            <strong>支付及配送</strong>
                         </div>
                         <div class="step-content">
-                            支付方式
-                            <div class="checkout_method">
-                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="payment" value="option1">货到付款
+                                </label>
                             </div>
-                            <div class="checkout_method">
-                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="payment" value="option1">在线支付
+                                </label>
                             </div>
-                            <div class="checkout_method">
-                                 <input type="radio" name="checkout_method" value="1" checked>货到付款
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="payment" value="option1">上门自提
+                                </label>
                             </div>
                         </div>
                     </div>
-
                     <div class="simpleCart_action text-right">
                         应付总额： <strong class="simpleCart_total text-danger"></strong>元&nbsp;&nbsp;
                         <button type="submit" class="btn btn-danger">提交订单</button>
