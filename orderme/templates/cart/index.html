@@ -3,71 +3,7 @@
 {% block title %}订单结算页{% endblock %}
 
 {% block stylesheet %}
-    <style>
-        .col-md-10 {
-            padding: 0;
-        }
-
-        .checkout {
-            margin-top: 12px;
-            border: 1px solid #DDDDDD;
-        }
-
-        .checkout .step {
-            border-bottom: 1px solid #DDDDDD;
-        }
-
-        .checkout .step .step-title {
-            height: 45px;
-            line-height: 45px;
-            padding: 0 20px;
-            position: relative;
-            font-size: 14px;
-        }
-
-        .checkout .step .step-content {
-            padding: 0 44px;
-            margin-bottom: 7px;
-        }
-
-        .form-horizontal .step-content label {
-            width: 90px;
-            font-weight: normal !important;
-        }
-
-        .form-horizontal .step-content input[type="radio"] {
-            margin: 5px;
-        }
-
-        .checkout .simpleCart_action {
-            background-color: #F5F5F5;
-            padding: 7px;
-        }
-
-        .checkout .simpleCart_total {
-            font-size: 20px;
-        }
-
-        .checkout .simpleCart_total .itemRow {
-
-        }
-
-        .checkout .simpleCart_items .item-custom-name {
-            width: 40%;
-        }
-
-        .checkout .simpleCart_items .item-price {
-            width: 25%;
-        }
-
-        .checkout .simpleCart_items .item-custom-quantity {
-            width: 15%;
-        }
-
-        .checkout .simpleCart_items .item-custom-remove {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ static('css/cart.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -105,6 +41,23 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">付款方式</label>
+                                <div class="col-md-9">
+                                    <label>
+                                        <input type="radio" name="payment" value="1" checked>货到付款
+                                    </label>
+                                    <p class="help-block">注：送货上门后再收款，支持现金、POS机刷卡</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">备 注</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control input-sm" name="comment"
+                                           placeholder="备 注">
+                                    <p class="help-block">注：收货时间是否有特殊要求，或者其他一些备注</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="step" id="step-2">
@@ -113,31 +66,6 @@
                         </div>
                         <div class="step-content simpleCart_items">
 
-                        </div>
-                    </div>
-                    <div class="step" id="step-3">
-                        <div class="step-title">
-                            <strong>支付及配送</strong>
-                        </div>
-                        <div class="step-content">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="payment" value="1" checked>货到付款
-                                </label>
-                                <span class="col-md-offset-1 text-muted">送货上门后再收款，支持现金、POS机刷卡</span>
-                            </div>
-                            <div class="radio hide">
-                                <label>
-                                    <input type="radio" name="payment" value="2">在线支付
-                                </label>
-                                <span class="col-md-offset-1 text-muted">即时到帐，支持绝大数银行借记卡及部分银行信用卡</span>
-                            </div>
-                            <div class="radio hide">
-                                <label>
-                                    <input type="radio" name="payment" value="3">上门自提
-                                </label>
-                                <span class="col-md-offset-1 text-muted">自提时付款，支持现金、POS刷卡、支票支付</span>
-                            </div>
                         </div>
                     </div>
                     <div class="simpleCart_action text-right">
@@ -152,34 +80,5 @@
 
 {% block javascript %}
     <script src="{{ static('components/bootstrap-touchspin/bootstrap-touchspin/bootstrap.touchspin.js') }}"></script>
-    <script type="text/javascript">
-        $(function () {
-            simpleCart({
-                cartColumns:[
-                    { attr:"custom-name", label:"商品", view:function (item) {
-                        return '<a href="#">' + item.get("name") + '</a><input type="hidden" name="item_idx" value="' + item.get("idx") + '">';
-                    }},
-                    { attr:"price", label:"单价", view:"currency"},
-                    { attr:"custom-quantity", label:"数量", view:function (item) {
-                        return '<div class="input-group input-group-sm item-quantity">' +
-                                '<span class="input-group-btn">' +
-                                '<button class="btn btn-default simpleCart_decrement" type="button">-</button>' +
-                                '</span>' +
-                                '<input type="text" name="item_quantity" class="input-sm form-control simpleCart_input" value="' + item.quantity() + '">' +
-                                '<span class="input-group-btn">' +
-                                '<button class="btn btn-default simpleCart_increment" type="button">+</button>' +
-                                '</span>' +
-                                '</div>';
-                    }},
-                    { attr:'custom-remove', view:function () {
-                        return '<button type="button" class="simpleCart_remove btn btn-xs">删&nbsp;除</button>';
-                    }}
-                ],
-                cartStyle:"table",
-                update:function () {
-                    
-                }
-            });
-        });
-    </script>
+    <script src="{{ static('js/cart.js') }}"></script>
 {% endblock %}

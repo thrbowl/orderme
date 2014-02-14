@@ -1,0 +1,51 @@
+.col-md-10 {
+    padding: 0;
+}
+.checkout {
+    margin-top: 12px;
+    border: 1px solid #DDDDDD;
+}
+.checkout .step {
+    border-bottom: 1px solid #DDDDDD;
+}
+.checkout .step .step-title {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    position: relative;
+    font-size: 14px;
+}
+.checkout .step .step-content {
+    padding: 0 44px;
+    margin-bottom: 7px;
+}
+.form-horizontal .step-content label {
+    width: 90px;
+    font-weight: normal !important;
+}
+.form-horizontal .step-content input[type="radio"] {
+    margin: 5px;
+}
+.checkout .simpleCart_action {
+    background-color: #F5F5F5;
+    padding: 7px;
+}
+.checkout .simpleCart_total {
+    font-size: 20px;
+}
+
+.checkout .simpleCart_total .itemRow {
+
+}
+.checkout .simpleCart_items .item-custom-name {
+    width: 40%;
+}
+.checkout .simpleCart_items .item-price {
+    width: 25%;
+}
+.checkout .simpleCart_items .item-custom-quantity {
+    width: 15%;
+}
+.checkout .simpleCart_items .item-custom-remove {
+    text-align: center;
+}
