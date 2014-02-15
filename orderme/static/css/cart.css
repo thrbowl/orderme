@@ -19,7 +19,7 @@
     padding: 0 44px;
     margin-bottom: 7px;
 }
-.form-horizontal .step-content label {
+.form-horizontal .step-content > label {
     width: 90px;
     font-weight: normal !important;
 }
@@ -48,4 +48,13 @@
 }
 .checkout .simpleCart_items .item-custom-remove {
     text-align: center;
+}
+label.vaild {
+
+}
+label.error {
+    font-weight: bold;
+    color: #b94a48;
+    padding: 2px 8px;
+    margin-top: 2px;
 }

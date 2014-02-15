@@ -10,7 +10,7 @@
     <div class="container">
         <fieldset>
             <legend>填写并核对订单信息</legend>
-            <form action="" method="post" class="form-horizontal">
+            <form id="form-checkout" action="" method="post" class="form-horizontal">
                 <div class="col-md-10 col-md-offset-1 checkout">
                     <div class="step" id="step-1">
                         <div class="step-title">
@@ -18,27 +18,25 @@
                         </div>
                         <div class="step-content">
                             <div class="form-group">
-                                <label class="control-label col-md-2">姓 名</label>
-                                <div class="col-md-2">
-                                    <input type="text" class="form-control input-sm" name="name"
-                                           placeholder="姓 名">
+                                <label class="control-label col-md-2">称 呼</label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control input-sm" name="name" value="{{ current_user.name }}"
+                                           placeholder="称 呼">
+                                    <input type="hidden" name="uid" value="{{ current_user.get_id() }}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">手机号</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control input-sm" name="mobile"
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control input-sm" name="mobile" value="{{ current_user.mobile }}"
                                            placeholder="手机号">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">地 址</label>
                                 <div class="col-md-7">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">辽宁省灯塔市</span>
-                                        <input type="text" class="form-control input-sm" name="address"
-                                               placeholder="地 址">
-                                    </div>
+                                    <input type="text" class="form-control input-sm" name="address" value="{{ current_user.address }}"
+                                           placeholder="送酒地址, 范围辽宁省灯塔市">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,7 +45,7 @@
                                     <label>
                                         <input type="radio" name="payment" value="1" checked>货到付款
                                     </label>
-                                    <p class="help-block">注：送货上门后再收款，支持现金、POS机刷卡</p>
+                                    <p class="help-block"><em class="text-success">注：送货上门后再收款，支持现金、POS机刷卡</em></p>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -55,7 +53,7 @@
                                 <div class="col-md-9">
                                     <input type="text" class="form-control input-sm" name="comment"
                                            placeholder="备 注">
-                                    <p class="help-block">注：收货时间是否有特殊要求，或者其他一些备注</p>
+                                    <p class="help-block"><em class="text-success">注：收货时间是否有特殊要求，或者其他一些备注</em></p>
                                 </div>
                             </div>
                         </div>
@@ -64,13 +62,16 @@
                         <div class="step-title">
                             <strong>商品清单</strong>
                         </div>
-                        <div class="step-content simpleCart_items">
-
+                        <div class="step-content simpleCart_items" id="simpleCart_items">
+                        </div>
+                        <div class="step-content text-center" id="simpleCart_no_items">
+                            <img src="{{ static('img/cart.png') }}" alt=""><br>购物车中还没有商品，赶紧<a href="{{ url_for('main.home') }}#shopping">选购</a>吧!
                         </div>
                     </div>
                     <div class="simpleCart_action text-right">
-                        应付总额： <strong class="simpleCart_total text-danger"></strong>元&nbsp;&nbsp;
-                        <button type="submit" class="btn btn-danger">提交订单</button>
+                        应付总额： <strong class="simpleCart_total text-danger"></strong>元
+                        <span class="glyphicon glyphicon-warning-sign" id="glyphicon_warning_sign"></span>&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-danger" id="checkout_submit">提交订单</button>
                     </div>
                 </div>
             </form>
@@ -80,5 +81,7 @@
 
 {% block javascript %}
     <script src="{{ static('components/bootstrap-touchspin/bootstrap-touchspin/bootstrap.touchspin.js') }}"></script>
+    <script src="{{ static('components/jquery-validation/jquery.validate.js') }}"></script>
+    <script src="{{ static('components/jquery-validation/localization/messages_zh.js') }}"></script>
     <script src="{{ static('js/cart.js') }}"></script>
 {% endblock %}

@@ -12,16 +12,20 @@ $(function () {
         update: function () {
             var total = simpleCart.total();
             if (total == 0) {
-                $("#simpleCart_action_0").removeClass("hide");
-                $("#simpleCart_action_1").addClass("hide");
+                $("#simpleCart_items").addClass("hide");
+                $("#simpleCart_no_items").removeClass("hide");
+                $("#simpleCart_action").addClass("hide");
             } else {
-                $("#simpleCart_action_1").removeClass("hide");
-                $("#simpleCart_action_0").addClass("hide");
+                $("#simpleCart_items").removeClass("hide");
+                $("#simpleCart_no_items").addClass("hide");
+                $("#simpleCart_action").removeClass("hide");
             }
             if (total >= 0 && total < MIN_AMOUNT) {
-                $("#simpleCart_total").addClass("badge-danger");
+                $("#glyphicon_warning_sign_1").removeClass("hide");
+                $("#glyphicon_warning_sign_2").removeClass("hide");
             } else {
-                $("#simpleCart_total").removeClass("badge-danger");
+                $("#glyphicon_warning_sign_1").addClass("hide");
+                $("#glyphicon_warning_sign_2").addClass("hide");
             }
         }
     });

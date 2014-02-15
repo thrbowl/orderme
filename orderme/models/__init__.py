@@ -46,7 +46,6 @@ class User(db.Model, UserMixin):
             self.birthday = datetime.date.today()
 
 
-
 class Goods(db.Model):
     __tablename__ = 'goods'
 
