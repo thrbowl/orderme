@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ static('css/home.css') }}">
 {% endblock %}
@@ -108,29 +109,12 @@
 {% endblock %}
 
 {% block javascript %}
+    <script type="text/javascript">
+        var raty_starOn_img = "{{ static('img/vote/star-on.png') }}";
+        var raty_starOff_img = "{{ static('img/vote/star-off.png') }}";
+        var raty_starHalf_img = "{{ static('components/raty/lib/img/star-half.png') }}";
+    </script>
     <script src="{{ static('components/raty/lib/jquery.raty.min.js') }}"></script>
     <script src="{{ static('components/bootstrap-touchspin/bootstrap-touchspin/bootstrap.touchspin.js') }}"></script>
-    <script type="text/javascript">
-        function pay(idx) {
-            var amount = $("#" + idx).val();
-            alert(amount);
-        }
-        function addToCart(idx) {
-            var amount = $("#" + idx).val();
-            alert(amount);
-        }
-        $("#star").raty({
-            size: 19,
-            score: 3,
-            starOn: "{{ static('img/vote/star-on.png') }}",
-            starOff: "{{ static('img/vote/star-off.png') }}",
-            starHalf: "{{ static('components/raty/lib/img/star-half.png') }}"
-        });
-        $("input[name='spinner']").TouchSpin({
-            min: 1,
-            max: 99999,
-            initval: 1,
-            prefix: "<strong>购买数目</strong>："
-        });
-    </script>
+    <script src="{{ static('js/home.js') }}"></script>
 {% endblock %}

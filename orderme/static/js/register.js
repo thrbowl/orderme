@@ -14,7 +14,7 @@ $(function () {
                 minlength: 6,
                 maxlength: 32,
                 required: true,
-                remote: remote_url
+                remote: custom_remote_url
             },
             password: {
                 minlength: 6,
