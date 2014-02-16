@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}用户管理页{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ static('css/admin/goods.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <ol>
+                    <li><a href="">用户管理</a></li>
+                    <li><a href="">商品管理</a></li>
+                    <li><a href="">订单管理</a></li>
+                </ol>
+            </div>
+            <div class="col-md-10">
+                <fieldset>
+                    <legend>用户管理</legend>
+                    
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ static('components/jquery-validation/jquery.validate.js') }}"></script>
+    <script src="{{ static('components/jquery-validation/localization/messages_zh.js') }}"></script>
+    <script src="{{ static('js/admin/goods.js') }}"></script>
+{% endblock %}

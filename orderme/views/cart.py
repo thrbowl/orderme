@@ -7,6 +7,6 @@ from sqlalchemy.orm.exc import NoResultFound
 
 cart = Blueprint('cart', __name__)
 
-@cart.route('/', methods=['GET'])
-def index():
-    return render_template('cart/index.html', has_navbar_cart=False)
+@cart.route('/checkout', methods=['GET'])
+def checkout():
+    return render_template('cart/checkout.html', has_navbar_cart=False)

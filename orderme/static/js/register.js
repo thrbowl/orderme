@@ -68,7 +68,7 @@ $(function () {
             address: {
                 minlength: "地址写详细一点吧，至少7个字",
                 maxlength: "地址太长了，到火星了，不要超过255个字",
-                required: "留个地址吧，不让把酒送哪去呢？"
+                required: "留个地址吧，不然把酒送哪去呢？"
             }
         },
         highlight: function (element) {

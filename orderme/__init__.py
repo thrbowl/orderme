@@ -40,6 +40,8 @@ def create_app(name=None, settings=None):
         app.register_blueprint(user, url_prefix='/user')
         from .views.cart import cart
         app.register_blueprint(cart, url_prefix='/cart')
+        from .views.admin import admin
+        app.register_blueprint(admin, url_prefix='/admin')
 
     logging.debug('add global templates function')
     app.jinja_env.globals['static'] = (lambda filename: url_for('static', filename=filename))
