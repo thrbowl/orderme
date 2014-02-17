@@ -10,16 +10,33 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <ol>
-                    <li><a href="">用户管理</a></li>
-                    <li><a href="">商品管理</a></li>
-                    <li><a href="">订单管理</a></li>
-                </ol>
+                {% include "admin/sidebar.html" %}
             </div>
             <div class="col-md-10">
                 <fieldset>
                     <legend>用户管理</legend>
-                    
+                    <table class="table table-hover">
+                        <thead>
+                            <th>用户名</th>
+                            <th>称 呼</th>
+                            <th>手机号</th>
+                            <th>消费金额</th>
+                            <th>创建时间</th>
+                            <th>是否可用</th>
+                        </thead>
+                        <tbody>
+                        {% for user in user_list %}
+                            <tr>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.mobile }}</td>
+                                <td>{{ user.cost }}</td>
+                                <td>{{ user.create_time }}</td>
+                                <td><a href="javascript:;">{{ user.is_active() }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </fieldset>
             </div>
         </div>

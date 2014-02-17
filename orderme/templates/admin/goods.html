@@ -10,15 +10,31 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <ol>
-                    <li><a href="">用户管理</a></li>
-                    <li><a href="">商品管理</a></li>
-                    <li><a href="">订单管理</a></li>
-                </ol>
+                {% include "admin/sidebar.html" %}
             </div>
             <div class="col-md-10">
                 <fieldset>
                     <legend>商品管理</legend>
+                    <table class="table table-hover">
+                        <thead>
+                            <th>商品名</th>
+                            <th>价 格</th>
+                            <th>添加时间</th>
+                            <th>类 型</th>
+                            <th>是否出售</th>
+                        </thead>
+                        <tbody>
+                        {% for goods in goods_list %}
+                            <tr>
+                                <td>{{ goods.name }}</td>
+                                <td>{{ goods.price }}</td>
+                                <td>{{ goods.create_time }}</td>
+                                <td>{{ goods.type }}</td>
+                                <td><a href="javascript:;">{{ goods.is_sell() }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </fieldset>
             </div>
         </div>

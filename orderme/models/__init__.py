@@ -25,6 +25,7 @@ class User(db.Model, UserMixin):
     cost = Column(Float, nullable=False, default=0)
     create_time = Column(DateTime, nullable=False)
     login_time = Column(DateTime, nullable=False)
+    _is_active = Column('is_active', Boolean, nullable=True, default=True)
 
     def __init__(self, **options):
         self.username = options['username']
@@ -33,6 +34,7 @@ class User(db.Model, UserMixin):
         self.mobile = options['mobile']
         self.address = options['address']
         self.create_time = self.login_time = datetime.datetime.now()
+        self._is_active = True
 
         birthday = options.get('birthday')
         birthday_year = options.get('birthday_year')
@@ -45,6 +47,9 @@ class User(db.Model, UserMixin):
         else:
             self.birthday = datetime.date.today()
 
+    def is_active(self):
+        return self._is_active
+
 
 class Goods(db.Model):
     __tablename__ = 'goods'
@@ -55,7 +60,7 @@ class Goods(db.Model):
     description = Column(Text)
     create_time = Column(DateTime, nullable=False)
     type = Column(Integer, default=0)
-    is_sell = Column(Boolean, nullable=False)
+    is_sell = Column(Boolean, nullable=False, default=False)
 
     def __init__(self, **options):
         self.name = options['name']
@@ -90,6 +95,7 @@ class Order(db.Model):
     __tablename__ = 'order'
 
     id = Column(Integer, primary_key=True)
+    name = Column(String(32), nullable=False)
     mobile = Column(String(11), nullable=False)
     address = Column(String(255), nullable=False)
     cost = Column(Float, nullable=False, default=0)
@@ -98,6 +104,7 @@ class Order(db.Model):
     status = Column(Integer, nullable=False)
 
     def __init__(self, **options):
+        self.name = options['name']
         self.mobile = options['mobile']
         self.address = options['address']
         self.cost = options['cost']
